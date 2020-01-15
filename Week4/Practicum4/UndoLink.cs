@@ -12,9 +12,7 @@ namespace Alg1.Practica.Practicum4
     {
         public Operation Operation { get; set; }
         public NAW Naw { get; set; }
-
         public UndoLink Previous { get; set; }
-
         public UndoLink Next { get; set; }
     }
 }

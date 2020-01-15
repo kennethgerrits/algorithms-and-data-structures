@@ -63,21 +63,22 @@ namespace Alg1.Practica.Practicum4
 
         public void Redo()
         {
-            if (Current == null && First == null)
+            switch (Current)
             {
-                return;
-            }
-            else if (Current == null && First != null)
-            {
-                Current = First;
-            }
-            else if (Current.Next == null)
-            {
-                return;
-            }
-            else
-            {
-                Current = Current.Next;
+                case null when First == null:
+                    return;
+                case null when First != null:
+                    Current = First;
+                    break;
+                default:
+                    {
+                        if (Current.Next == null)
+                        {
+                            return;
+                        }
+                        Current = Current.Next;
+                        break;
+                    }
             }
             ApplyOperation(Current);
         }
@@ -92,12 +93,9 @@ namespace Alg1.Practica.Practicum4
             }
 
             if (First == null)
-            {
                 First = newUndo;
-            }
 
             Current = newUndo;
-
         }
 
         private void ApplyOperation(UndoLink link)

@@ -44,17 +44,17 @@ namespace Alg1.Practica.Practicum4
              Console.ReadKey();*/
 
             UndoableNawArray unArray = new UndoableNawArray(10);
-            unArray.Add(new NAW("nelus", "straat 6", "4"));
+            unArray.Add(new NAW("kenneth", "straat 6", "4"));
             unArray.Undo();
            // unArray.Undo();
 
             printContent();
 
-            unArray.Add(new NAW("nelus", "straat 1", "9"));
-            unArray.Add(new NAW("nelus", "straat 2", "8"));
-            unArray.Add(new NAW("nelus", "straat 3", "7"));
-            unArray.Add(new NAW("nelus", "straat 4", "6"));
-
+            unArray.Add(new NAW("kenneth", "straat 1", "9"));
+            unArray.Add(new NAW("kenneth", "straat 2", "8"));
+            unArray.Add(new NAW("kenneth", "straat 3", "7"));
+            unArray.Add(new NAW("kenneth", "straat 4", "6"));
+            
             printContent();
 
             unArray.Undo();
@@ -96,8 +96,6 @@ namespace Alg1.Practica.Practicum4
             }
 
             Console.ReadLine();
-
-
 
         }
     }
