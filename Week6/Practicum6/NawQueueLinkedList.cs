@@ -8,9 +8,7 @@ namespace Alg1.Practica.Practicum6
         public Link First { get; set; }
 
         protected Link Last { get; set; }
-
         protected int _count;
-
 
         public void Enqueue(NAW naw)
         {
@@ -32,9 +30,7 @@ namespace Alg1.Practica.Practicum6
         public NAW Dequeue()
         {
             if (First == null)
-            {
                 return null;
-            }
 
             NAW result = First.Naw;
             First = First.Next;

@@ -19,18 +19,13 @@ namespace Alg1.Practica.Practicum6
         {
             // aanmaken intern array
             if ((initialSize > 0) && (initialSize <= 1000))
-            {
                 _size = initialSize;
-            }
             else
-            {
                 throw new NawQueueArrayInvalidSizeException();
-            }
 
             _array = new Alg1NawArray(_size);
 
             // verdere initialisatie
-
             Front = 0;
             Rear = -1;
             _count = 0;
@@ -39,30 +34,24 @@ namespace Alg1.Practica.Practicum6
         public void Enqueue(NAW naw)
         {
             if (_count.Equals(_size))
-            {
                 throw new NawQueueArrayOutOfBoundsException();
-            }
+            
             if (Rear == _size - 1)
-            {
                 Rear = -1;
-            }
+            
             _array[++Rear] = naw;
             _count++;
-
         }
 
         public NAW Dequeue()
         {
-            if (_count == 0)
-            {
-                return null;
-            }
-
+            if (_count == 0) return null;
+            
             NAW temp = _array[Front++];
+
             if (Front == _size)
-            {
                 Front = 0;
-            }
+            
             _count--;
             return temp;
         }

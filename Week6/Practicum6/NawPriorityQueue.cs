@@ -9,14 +9,11 @@ namespace Alg1.Practica.Practicum6
     public class NawPriorityQueue
     {
         private SortedList<int, NawQueueLinkedList> _priorityQueue = new SortedList<int, NawQueueLinkedList>();
-
-
+        
         public void Enqueue(int priority, NAW naw)
         {
             if (priority < 0)
-            {
                 return;
-            }
 
             NawQueueLinkedList list;
 
@@ -30,27 +27,23 @@ namespace Alg1.Practica.Practicum6
             {
                 list = new NawQueueLinkedList();
                 list.Enqueue(naw);
-
                 _priorityQueue.Add(priority, list);
             }
         }
 
         public NAW Dequeue()
         {
-            if (_priorityQueue.Count == 0)
-            {
-                return null;
-            }
+            if (_priorityQueue.Count == 0) return null;
+            
             var min = _priorityQueue.Keys[0];
             NawQueueLinkedList temp;
             _priorityQueue.TryGetValue(min, out temp);
             NAW tempNaw = temp.Dequeue();
-            if (temp.Count() == 0)
-            {
-                _priorityQueue.Remove(min);
-            }
-            return tempNaw;
 
+            if (temp.Count() == 0)
+                _priorityQueue.Remove(min);
+            
+            return tempNaw;
         }
 
         public int Count()
@@ -79,9 +72,6 @@ namespace Alg1.Practica.Practicum6
                     temp = temp.Next;
                 }
             }
-
-
-            // Deze methode is handig bij het debuggen maar wordt niet nagekeken
         }
     }
 }

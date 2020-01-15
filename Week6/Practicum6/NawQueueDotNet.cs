@@ -16,18 +16,14 @@ namespace Alg1.Practica.Practicum6
 
         public NAW Dequeue()
         {
-            if (queue.Count > 0)
-            {
-                _count--;
-                return queue.Dequeue();
-            }
-            return null;
+            if (queue.Count <= 0) return null;
+            _count--;
+            return queue.Dequeue();
         }
 
         public int Count()
         {
             return _count;
         }
-
     }
 }
