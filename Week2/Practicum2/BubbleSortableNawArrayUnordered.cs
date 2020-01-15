@@ -11,16 +11,14 @@ namespace Alg1.Practica.Practicum2
 
         public void BubbleSort()
         {
-            int output, input;
+            int outer, inner;
 
-            for (output = _used - 1; output >= 1; output--)
+            for (outer = _used - 1; outer >= 1; outer--)
             {
-                for (input = 0; input < output; input++)
+                for (inner = 0; inner < outer; inner++)
                 {
-                    if (_nawArray[input].CompareTo(_nawArray[input + 1]) == 1)
-                    {
-                        _nawArray.Swap(input, input + 1);
-                    }
+                    if (_nawArray[inner].CompareTo(_nawArray[inner + 1]) == 1)
+                        _nawArray.Swap(inner, inner + 1);
                 }
             }
         }
@@ -32,9 +30,7 @@ namespace Alg1.Practica.Practicum2
                 for (int j = _used - 2; j >= i; j--)
                 {
                     if (_nawArray[j].CompareTo(_nawArray[j + 1]) == 1)
-                    {
                         _nawArray.Swap(j, j + 1);
-                    }
                 }
             }
         }

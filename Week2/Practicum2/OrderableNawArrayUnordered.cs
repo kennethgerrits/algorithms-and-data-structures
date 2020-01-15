@@ -15,9 +15,7 @@ namespace Alg1.Practica.Practicum2
             NawArrayOrdered nawArray = new NawArrayOrdered(_used);
 
             for (int i = 0; i < _used; i++)
-            {
                 nawArray.Add(_nawArray[i]);
-            }
             return nawArray;
         }
     }

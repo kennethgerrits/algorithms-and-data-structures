@@ -59,23 +59,15 @@ namespace Alg1.Practica.Practicum2
                 int curIn = (lowerBound + upperBound) / 2;
 
                 if (_nawArray[curIn].CompareTo(item) == 1)
-                {
                     lowerBound = curIn + 1;
-                }
                 else
-                {
                     upperBound = curIn - 1;
-                }
             }
 
             if (upperBound < lowerBound)
-            {
                 newIndex = lowerBound;
-            }
             else
-            {
                 newIndex = (lowerBound + upperBound) / 2;
-            }
 
             for (int i = _used; i > newIndex; --i)
             {
