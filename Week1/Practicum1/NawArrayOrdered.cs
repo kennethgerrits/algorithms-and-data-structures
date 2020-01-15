@@ -3,7 +3,6 @@ using Alg1.Practica.Utils;
 using Alg1.Practica.Utils.Exceptions;
 using Alg1.Practica.Utils.Models;
 
-
 namespace Alg1.Practica.Practicum1
 {
     public class NawArrayOrdered : INawArray, INawArrayOrdered
@@ -13,47 +12,37 @@ namespace Alg1.Practica.Practicum1
         public Alg1NawArray Array => _nawArray;
 
         protected int _size;
-        protected int _used = 0;
+        protected int _used;
 
         public NawArrayOrdered(int initialSize)
         {
             if (initialSize < 1 || initialSize > 1000000)
-            {
                 throw new NawArrayOrderedInvalidSizeException();
-            }
-            else
-            {
-                _size = initialSize;
-                _nawArray = new Alg1NawArray(initialSize);
-            }
+
+            _size = initialSize;
+            _nawArray = new Alg1NawArray(initialSize);
         }
         public void Show()
         {
-            // Niet gevraagd
-
             System.Console.WriteLine("Array contains {0} of {1} items.", _used, _size);
             for (int i = 0; i < _size; i++)
             {
                 if (i == _used)
-                {
                     System.Console.WriteLine("------------------------------------------------------");
-                }
+
                 System.Console.Write("Item {0} contains: ", i);
+
                 if (_nawArray[i] != null)
-                {
                     _nawArray[i].Show();
-                }
                 else
-                {
                     System.Console.WriteLine("nothing");
-                }
             }
         }
 
         public int Count
         {
-            get { return ItemCount(); }
-            set { _used = value; }
+            get => ItemCount();
+            set => _used = value;
         }
 
         public int ItemCount()
@@ -86,24 +75,18 @@ namespace Alg1.Practica.Practicum1
                     }
                 }
 
-                if (!inserted)
-                {
-                    _nawArray[_used] = item;
-                    _used++;
-                }
+                if (inserted) return;
+                _nawArray[_used] = item;
+                _used++;
             }
             else
-            {
                 throw new NawArrayOrderedOutOfBoundsException();
-            }
         }
 
         public void RemoveAtIndex(int index)
         {
             if (index >= _used || index < 0)
-            {
                 throw new NawArrayOrderedOutOfBoundsException();
-            }
 
             for (int j = index + 1; j < _used; j++)
             {
@@ -118,50 +101,38 @@ namespace Alg1.Practica.Practicum1
         {
             int x = Find(item);
             if (x == -1)
-            {
                 return false;
-            }
-            else
-            {
-                RemoveAtIndex(x);
-            }
+
+            RemoveAtIndex(x);
             return true;
         }
 
         public NAW ItemAtIndex(int index)
         {
             if (index >= _used || index < 0)
-            {
                 throw new NawArrayOrderedOutOfBoundsException();
-            }
+
             return _nawArray[index];
         }
 
         public int Find(NAW item)
         {
             if (item.CompareTo(_nawArray[0]) == -1 || item.CompareTo(_nawArray[_used - 1]) == 1)
-            {
                 return -1;
-            }
 
             for (int i = 0; i < _used; i++)
             {
                 if (item.Equals(_nawArray[i]))
-                {
                     return i;
-                }
             }
             return -1;
         }
 
         public bool Update(NAW oldValue, NAW newValue)
         {
-            if (Remove(oldValue))
-            {
-                Add(newValue);
-                return true;
-            }
-            return false;
+            if (!Remove(oldValue)) return false;
+            Add(newValue);
+            return true;
         }
     }
 }
