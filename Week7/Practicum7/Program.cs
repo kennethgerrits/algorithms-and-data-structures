@@ -16,7 +16,6 @@ namespace Alg1.Practica.Practicum7
             Console.WriteLine($"count: {a.Count}");
             Console.WriteLine($"LF: {a.LoadFactor}");
 
-
             Console.ReadLine();
 
         }

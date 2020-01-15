@@ -8,7 +8,7 @@ namespace Alg1.Practica.Practicum7
     {
         public int Size { get; }
         protected LogFile[] logFiles;
-        private int _count = 0;
+        private int _count;
 
         public NawDictionary(int size)
         {
@@ -21,9 +21,7 @@ namespace Alg1.Practica.Practicum7
         protected int KeyToIndex(string key)
         {
             if (key == null)
-            {
                 throw new ArgumentNullException();
-            }
 
             var hashValue = key.GetHashCode();
             var compressedHashValue = hashValue % Size;
@@ -32,39 +30,29 @@ namespace Alg1.Practica.Practicum7
             return index;
         }
 
-
-
         public void Insert(string key, NAW value)
         {
             if (key == null)
-            {
                 throw new ArgumentNullException();
-            }
 
             var i = KeyToIndex(key);
             logFiles[i].Insert(key, value);
             _count++;
-
         }
 
         public NAW Find(string key)
         {
             if (key == null)
-            {
                 throw new ArgumentNullException();
-            }
 
             var newKey = KeyToIndex(key);
             return logFiles[newKey].Find(key);
-
         }
 
         public NAW Delete(string key)
         {
             if (key == null)
-            {
                 throw new ArgumentNullException();
-            }
 
             var temp = Find(key);
             var newKey = KeyToIndex(key);
@@ -86,10 +74,8 @@ namespace Alg1.Practica.Practicum7
         {
             get
             {
-            
                 return (double) Count / Size;
             }
         }
-
     }
 }
