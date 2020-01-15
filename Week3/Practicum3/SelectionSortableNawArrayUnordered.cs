@@ -12,11 +12,8 @@ namespace Alg1.Practica.Practicum3
 
         public void SelectionSort()
         {
-            if (_used == 0)
-            {
-                return;
-            }
-
+            if (_used == 0)return;
+            
             int outer, inner, min;
             for (outer = 0; outer < _used - 1; outer++)
             {
@@ -24,45 +21,31 @@ namespace Alg1.Practica.Practicum3
                 for (inner = outer + 1; inner < _used; inner++)
                 {
                     if (_nawArray[inner].CompareTo(_nawArray[min]) < 0)
-                    {
                         min = inner;
-                    }
                 }
 
                 if (min != outer)
-                {
                     _nawArray.Swap(outer, min);
-                }
             }
         }
 
         public void SelectionSortInverted()
         {
-            if (_used == 0)
-            {
-                return;
-            }
+            if (_used == 0) return;
 
-            int outer, inner, max = 0;
+            int outer, inner, max;
             for (outer = _used - 1; outer > 0; outer--)
             {
                 max = outer;
                 for (inner = outer - 1; inner >= 0; inner--)
                 {
                     if (_nawArray[inner].CompareTo(_nawArray[max]) > 0)
-                    {
                         max = inner;
-                    }
                 }
 
                 if (max != outer)
-                {
                     _nawArray.Swap(outer, max);
-                }
             }
-
-
-
         }
     }
 }

@@ -19,13 +19,10 @@ namespace Alg1.Practica.Practicum3
             {
                 for (inner = 0; inner < outer; inner++)
                 {
-                    if (_nawArray[inner].CompareTo(_nawArray[inner + 1]) == 0)
-                    {
-                        temp = _nawArray[inner];
-                        _nawArray[inner] = _nawArray[inner + 1];
-                        _nawArray[inner + 1] = temp;
-
-                    }
+                    if (_nawArray[inner].CompareTo(_nawArray[inner + 1]) != 0) continue;
+                    temp = _nawArray[inner];
+                    _nawArray[inner] = _nawArray[inner + 1];
+                    _nawArray[inner + 1] = temp;
                 }
             }
         }

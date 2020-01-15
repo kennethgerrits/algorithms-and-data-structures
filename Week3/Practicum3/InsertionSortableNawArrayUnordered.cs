@@ -25,19 +25,13 @@ namespace Alg1.Practica.Practicum3
                 }
 
                 if (ind != outer)
-                {
                     _nawArray[ind] = temp;
-                }
-
             }
         }
 
         public void InsertionSortInverted()
         {
-            if (_used == 0)
-            {
-                return;
-            }
+            if (_used == 0) return;
             for (int outer = _used - 1; outer >= 0; outer--)
             {
                 NAW temp = _nawArray[outer];
@@ -49,13 +43,8 @@ namespace Alg1.Practica.Practicum3
                 }
 
                 if (ind != outer)
-                {
                     _nawArray[ind] = temp;
-                }
-
             }
         }
-
-
     }
 }
