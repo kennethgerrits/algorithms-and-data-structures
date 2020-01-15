@@ -1,6 +1,3 @@
-
-using System;
-
 namespace Alg1.Practica.Practicum5
 {
     public class XmlValidator
@@ -8,16 +5,13 @@ namespace Alg1.Practica.Practicum5
 
         public bool Validate(string xml)
         {
-
             if (!xml.Contains("<"))
-            {
                 return true;
-            }
 
-            Stack _stack = new Stack();
+            Stack stack = new Stack();
 
-            int start = 0;
-            int end = 0;
+            int start;
+            int end;
             int counter = 0;
             string newString;
 
@@ -32,39 +26,30 @@ namespace Alg1.Practica.Practicum5
                     if (newString.Contains("/"))
                     {
                         if (counter == 0)
-                        {
                             return false;
-                        }
-                        if (_stack.Peek().Contains(newString.Substring(2, newString.Length-2)))
+                        
+                        if (stack.Peek().Contains(newString.Substring(2, newString.Length-2)))
                         {
-                            _stack.Pop();
+                            stack.Pop();
                             counter--;
                             xml = xml.Substring(xml.IndexOf('>') + 1);
-
                         }
                         else
-                        {
                             return false;
-                        }
                     }
                     else
                     {
-                        _stack.Push(newString);
+                        stack.Push(newString);
                         xml = xml.Substring(xml.IndexOf('>') + 1);
                         counter++;
                     }
-
                 }
                 else
-                {
                     return false;
-                }
             }
 
             if(counter != 0)
-            {
                 return false;
-            }
 
             return true;
         }

@@ -11,9 +11,8 @@ namespace Alg1.Practica.Practicum5
         public ArrayStack(int capacity)
         {
             if (capacity <= 0)
-            {
                 throw new ArgumentOutOfRangeException();
-            }
+            
             values = new string[capacity];
             size = 0;
         }
@@ -21,9 +20,7 @@ namespace Alg1.Practica.Practicum5
         public void Push(string value)
         {
             if (IsFull())
-            {
                 throw new InvalidOperationException();
-            }
 
             values[size] = value;
             size++;
@@ -32,10 +29,8 @@ namespace Alg1.Practica.Practicum5
         public string Pop()
         {
             if (IsEmpty())
-            {
                 return null;
-            }
-
+            
             string temp = values[size - 1];
             values[size - 1] = null;
             size--;
@@ -44,32 +39,17 @@ namespace Alg1.Practica.Practicum5
 
         public string Peek()
         {
-            if (IsEmpty())
-            {
-                return null;
-            }
-
-            return values[size - 1];
+            return IsEmpty() ? null : values[size - 1];
         }
 
         public bool IsEmpty()
         {
-            if (values[0] == null)
-            {
-                return true;
-            }
-
-            return false;
+            return values[0] == null;
         }
 
         public bool IsFull()
         {
-            if (size == values.Length)
-            {
-                return true;
-            }
-
-            return false;
+            return size == values.Length;
         }
 
         public void readAll()

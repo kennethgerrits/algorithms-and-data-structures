@@ -9,19 +9,16 @@ namespace Alg1.Practica.Practicum5
 
         public void Push(string value)
         {
-            if (value != null)
-            {
-                StackLink temp = new StackLink { String = value, Next = First };
-                First = temp;
-            }
+            if (value == null) return;
+            StackLink temp = new StackLink { String = value, Next = First };
+            First = temp;
         }
 
         public string Pop()
         {
             if (IsEmpty())
-            {
                 return null;
-            }
+            
             string temp = First.String;
             First = First.Next;
             return temp;
@@ -30,25 +27,14 @@ namespace Alg1.Practica.Practicum5
         public string Peek()
         {
             if (!IsEmpty())
-            {
                 return First.String;
-            }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
         public bool IsEmpty()
         {
-            if (First == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return First == null;
         }
     }
 }
