@@ -1,4 +1,4 @@
-# ALG1
+# Algorithms and Datastructures
 Algoritmiek en Datastructuren opdrachten 2019 - Avans - Jaar 2  
 cijfers:   
 week1: 9,5  
